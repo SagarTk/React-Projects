@@ -16,20 +16,17 @@ const router = createBrowserRouter(
     <Route path='/' element={<Layout />} >
 
       <Route path='' element={<Home />} />
-      
       <Route path='about' element={<About />} />
-      
       <Route path='contact' element={<Contact />} />
-
       <Route 
         loader={githubInfo} 
         path='github' 
-        element={<Github />} />
+        element={<Github />} 
+      />
 
     </Route>
 
   )
-
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -1,5 +1,11 @@
-import { createContext } from 'react'
+import { createContext, useContext } from "react"
 
-const UserContext = createContext()
+export const UserContext = createContext()
 
-export default UserContext
+export const UserContextProvider = UserContext.Provider ;
+
+const UseContext = () => {
+    return useContext(UserContext)
+}
+
+export default UseContext

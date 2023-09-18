@@ -1,34 +1,38 @@
-import React from 'react'
-import { useContext } from 'react'
-import { useState } from 'react'
-import UserContext from '../Context/UserContext'
+import React, { useState } from 'react'
+import UseContext from '../Context/UserContext'
 
 const Login = () => {
-    const [username , setUsername] = useState("")
-    const [paasword , setPaasword] = useState("")
-    const {setUser} = useContext(UserContext)
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setUser({username , paasword})
-    }
+  const [username , setUsername] = useState("")
+  const [paasword , setPaasword] = useState("")
+  const {setUser} = UseContext()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setUser({username , paasword})
+  }
 
   return (
-    <div className='flex flex-col gap-2 text-black'>
-        <input 
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        type="text" 
-        placeholder='username'
-        />
-        <input 
-        value={paasword}
-        onChange={(e) => setPaasword(e.target.value)}
-        type="text" 
-        placeholder='paasword'
-        />
-        <button className='bg-green-500 text-black px-1' onClick={handleSubmit}>Submit</button>
+    <div className='flex flex-col gap-3'>
+      <input 
+      className='p-2 bg-gray-200 outline-none rounded-md text-black'
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      type="text" 
+      />
+
+      <input 
+      value={paasword}
+      onChange={(e) => setPaasword(e.target.value)}
+      className='p-2 bg-gray-200 outline-none rounded-md text-black'
+      type="text" 
+      />
+      
+      <button 
+      onClick={handleSubmit}
+      className='p-2 font-bold text-md bg-green-500 rounded-md text-black'>Login</button>
     </div>
   )
 }
+
 export default Login

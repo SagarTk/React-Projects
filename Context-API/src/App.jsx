@@ -1,11 +1,15 @@
+import { useState } from "react"
 import Login from "./Component/Login"
 import Profile from "./Component/Profile"
-import UserContextProvider from "./Context/UserContextProvider"
+import { UserContextProvider } from "./Context/UserContext"
 
 function App() {
 
+  const [user , setUser] = useState("")
+
   return (
-    <UserContextProvider>
+    
+    <UserContextProvider value={{user , setUser}}>
       <div className="bg-slate-900 w-screen h-screen text-teal-300 flex flex-col justify-center items-center">
         
         <Login />
@@ -13,6 +17,7 @@ function App() {
         
       </div> 
     </UserContextProvider>
+    
   )
 }
 
